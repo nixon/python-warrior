@@ -45,7 +45,7 @@ class TestProfile(unittest.TestCase):
 
     def test_should_add_abilities_and_remove_duplicates(self):
         self.profile.add_abilities('foo', 'bar', 'blah', 'bar')
-        self.assertItemsEqual(self.profile.abilities, ['foo', 'bar', 'blah'])
+        self.assertCountEqual(self.profile.abilities, ['foo', 'bar', 'blah'])
 
     def test_should_fetch_new_level_with_current_number(self):
         self.profile.level_number = 1
