@@ -34,7 +34,7 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(Profile.decode(self.profile.encode()).warrior_name,
                          self.profile.warrior_name)
 
-    @mock.patch('__builtin__.open')
+    @mock.patch('builtins.open')
     def test_load_should_read_file_decode_and_set_player_path(self, mock_open):
         profile = mock.Mock()
         mock_open.read.return_value = "encoded_profile"
@@ -94,7 +94,7 @@ class TestProfileWithTowerPath(unittest.TestCase):
         self.profile.tower_path = "path/to/tower"
 
     def test_save_should_write_file_with_encoded_profile(self):
-        with mock.patch('__builtin__.open') as mock_open:
+        with mock.patch('builtins.open') as mock_open:
             with mock.patch.object(self.profile, 'encode',
                                    return_value='encoded_profile'):
                 f = mock.Mock()
