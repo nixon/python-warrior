@@ -160,7 +160,11 @@ class Game(object):
     def tower_paths(self):
         tower_paths = glob.glob(os.path.normpath(os.path.abspath(__file__) +
                                                  '/../towers/*'))
-        tower_paths = [path for path in tower_paths if os.path.isdir(path)]
+        tower_paths = [
+                path
+                for path in tower_paths
+                if os.path.isdir(path) and not path.endswith("__pycache__")
+                ]
         return tower_paths
 
     def current_level(self):
