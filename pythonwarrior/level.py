@@ -2,7 +2,6 @@ import glob
 import os
 import sys
 
-from pythonwarrior.level_loader import LevelLoader
 from pythonwarrior.player_generator import PlayerGenerator
 from pythonwarrior.ui import UI
 
@@ -46,9 +45,12 @@ class Level(object):
         )
 
     def load_level(self):
-        level = LevelLoader(self)
-        f = open(self.load_path())
-        exec(f.read())
+        code = [
+            'from pythonwarrior.level_loader import LevelLoader',
+            'level = LevelLoader(self)',
+            open(self.load_path()).read(),
+            ]
+        exec('\n'.join(code))
 
     def generate_player_files(self):
         self.load_level()
