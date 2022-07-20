@@ -18,7 +18,9 @@ class UI(object):
     @staticmethod
     def write(msg):
         if Config.out_stream:
-            return Config.out_stream.write(msg)
+            num = Config.out_stream.write(msg)
+            Config.out_stream.flush()
+            return num
 
     @staticmethod
     def gets():
