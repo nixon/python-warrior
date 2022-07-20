@@ -30,7 +30,7 @@ class Profile(object):
         self.update_epic_score()
         if self.epic:
             self.level_number = 0
-        f = open(self.player_path + '/.profile', 'w')
+        f = open(self.player_path + '/.profile', 'wb')
         f.write(self.encode())
 
     @staticmethod
@@ -39,7 +39,7 @@ class Profile(object):
 
     @staticmethod
     def load(path):
-        f = open(path)
+        f = open(path, "rb")
         player = Profile.decode(f.read())
         player._player_path = os.path.dirname(path)
         return player

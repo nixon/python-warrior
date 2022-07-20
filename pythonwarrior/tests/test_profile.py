@@ -41,7 +41,7 @@ class TestProfile(unittest.TestCase):
         with mock.patch('pythonwarrior.profile.Profile.decode',
                         return_value=profile):
             self.assertEqual(Profile.load('path/to/.profile'), profile)
-            mock_open.assert_called_once_with("path/to/.profile")
+            mock_open.assert_called_once_with("path/to/.profile", "rb")
 
     def test_should_add_abilities_and_remove_duplicates(self):
         self.profile.add_abilities('foo', 'bar', 'blah', 'bar')
@@ -102,7 +102,7 @@ class TestProfileWithTowerPath(unittest.TestCase):
                 self.profile.save()
                 f.write.assert_called_once_with('encoded_profile')
                 mock_open.assert_called_once_with(self.profile._player_path +
-                                                  '/.profile', 'w')
+                                                  '/.profile', 'wb')
 
     def test_should_have_a_nice_string_representation(self):
         self.profile.warrior_name = "Joe"
