@@ -15,7 +15,10 @@ class PlayerGenerator(object):
             shutil.copy(self.templates_path() +
                         '/player.py', self.level.player_path() + '/player.py')
 
-        env = Environment(loader=PackageLoader('pythonwarrior', 'templates'))
+        env = Environment(
+                loader=PackageLoader('pythonwarrior', 'templates'),
+                keep_trailing_newline=True
+                )
         readme_template = env.get_template('README')
 
         readme = open(self.level.player_path() + '/README', 'w')
