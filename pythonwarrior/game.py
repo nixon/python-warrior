@@ -32,8 +32,8 @@ class Game(object):
             self.play_normal_mode()
 
     def make_game_directory(self):
-        if UI.ask("No pythonwarrior directory found, \
-                  would you like to create one?"):
+        if UI.ask("No pythonwarrior directory found,\n"
+                  "would you like to create one?"):
             os.mkdir(Config.path_prefix + '/pythonwarrior')
         else:
             UI.puts('Unable to continue without directory.')
