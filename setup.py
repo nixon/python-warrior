@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pythonwarrior',
-    version='0.0.8',
+    version='0.1.0',
     packages=find_packages(),
     package_data={'pythonwarrior': ['templates/README']},
     scripts=['bin/pythonwarrior'],

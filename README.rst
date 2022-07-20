@@ -195,6 +195,11 @@ Make sure to try the different options you can pass to the pythonwarrior command
 Versions
 ========
 
+0.1.0
+-----
+
+* converted to python3
+
 0.0.8
 -----
 
